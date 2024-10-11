@@ -1,0 +1,31 @@
+name: Update model data
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs every 24 hours
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  update-releases:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+        with:
+          ref: data
+
+      - name: Fetch repository details
+        run: |
+          curl -s https://api.github.com/repos/REDasmOrg/REDasm > repository.json
+
+      - name: Fetch releases
+        run: |
+          curl -s https://api.github.com/repos/REDasmOrg/REDasm/releases > releases.json
+
+      - name: Push updates to data branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add repository.json releases.json
+          git commit -m "chore: update model" || echo "No changes to commit"
+          git push -f origin data
