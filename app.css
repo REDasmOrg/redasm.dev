@@ -9,6 +9,6 @@ body {
     font-family: "Inter", sans-serif;
 }
 
-a:not([data-default]), a:visited:not([data-default]), a[data-default]:hover  {
+a:not([data-default]), a:visited:not([data-default]), a[data-default]:hover {
     @apply text-primary
 }

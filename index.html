@@ -100,14 +100,7 @@
             </section>
             <section>
                 <h2 class="font-bold">STATS</h2>
-                <ul>
-                    <li>
-                        <a class="github-button" href="https://github.com/REDasmOrg/REDasm"
-                            data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-star"
-                            data-size="large" data-show-count="true"
-                            aria-label="Star REDasmOrg/REDasm on GitHub">Star</a>
-                    </li>
-                </ul>
+                <gh-stats />
             </section>
         </div>
         <p class="text-sm italic">
@@ -118,10 +111,10 @@
             redasm.dev version 1.0
         </p>
     </footer>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script type="module">
         import "./components/tabcontainer.js";
         import "./components/imgcarousel.js";
+        import "./components/ghstats.js";
         import App from "./app.js";
         import HomePage from "./pages/home.js";
         import FeaturesPage from "./pages/features.js";
