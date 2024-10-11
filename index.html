@@ -112,6 +112,7 @@
         </p>
     </footer>
     <script type="module">
+        import initFontAwesome from "./fontawesome.js";
         import "./components/tabcontainer.js";
         import "./components/imgcarousel.js";
         import "./components/ghstats.js";
@@ -124,9 +125,9 @@
             "/": HomePage,
             "/features": FeaturesPage,
             "/download": DownloadPage,
-        }, {
-            name: "REDasm"
-        });
+        }, {name: "REDasm"});
+
+        initFontAwesome();
     </script>
 </body>
 

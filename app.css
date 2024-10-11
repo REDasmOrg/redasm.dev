@@ -1,5 +1,5 @@
-@import "@fortawesome/fontawesome-free/css/all.min.css";
-@import "@fontsource/inter";
+@import "@fontsource/inter/latin-400.css"; /* Regular weight, Latin */
+@import "@fontsource/inter/latin-700.css"; /* Bold weight, Latin */
 
 @tailwind base;
 @tailwind components;
