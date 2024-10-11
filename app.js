@@ -172,7 +172,7 @@ export default class App {
     }
 
     _updateTitle(pagetitle) {
-        const title = document.head.querySelector("title");
+        let title = document.head.querySelector("title");
 
         if (!title)
             title = document.head.appendChild(document.createElement("title"));
