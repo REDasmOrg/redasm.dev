@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="/favicon.ico" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="REDasm">
+    <meta name="description" content="The OpenSource Disassembler">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://redasm.io/">
+    <meta property="og:title" content="REDasm">
+    <meta property="og:description" content="The OpenSource Disassembler">
+    <meta property="og:image" content="https://redasm.io/assets/web_preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://redasm.io/">
+    <meta property="twitter:title" content="REDasm">
+    <meta property="twitter:description" content="The OpenSource Disassembler">
+    <meta property="twitter:image" content="https://redasm.io/assets/web_preview.png">
+
+    <link rel="stylesheet" href="/app.css">
+    <title>REDasm</title>
+</head>
+
+<body class="text-foreground bg-background">
+    <header class="bg-background-alt container mx-auto">
+        <nav class="flex justify-between py-4 px-3">
+            <ul class="flex gap-x-3">
+                <li>
+                    <a data-default data-navigation href="/">Home</a>
+                </li>
+                <li>
+                    <a data-default data-navigation href="/features">Features</a>
+                </li>
+                <!-- <li> -->
+                <!--     <a data-default data-navigation href="/roadmap">Roadmap</a> -->
+                <!-- </li> -->
+                <li>
+                    <a data-default data-navigation href="/download">Download</a>
+                </li>
+            </ul>
+            <ul class="flex gap-x-3">
+                <li>
+                    <a data-default href="https://t.me/REDasmDisassembler">
+                        <i class="fab fa-telegram fa-fw fa-lg" aria-label="Telegram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a data-default href="https://x.com/re_dasm">
+                        <i class="fab fa-x-twitter fa-fw fa-lg" aria-label="X"></i>
+                    </a>
+                </li>
+                <li>
+                    <a data-default href="https://www.reddit.com/r/REDasm">
+                        <i class="fab fa-reddit-alien fa-fw fa-lg" aria-label="Reddit"></i>
+                    </a>
+                </li>
+                <li>
+                    <a data-default href="https://www.youtube.com/@redasm">
+                        <i class="fab fa-youtube fa-fw fa-lg" aria-label="YouTube"></i>
+                    </a>
+                </li>
+                <li>
+                    <a data-default href="https://github.com/REDasmOrg">
+                        <i class="fab fa-github-alt fa-fw fa-lg" aria-label="Source Code"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container bg-background-alt my-3 mx-auto">
+        <main class="p-6">
+
+        </main>
+    </div>
+    <footer class="text-center container mx-auto pb-3">
+        <div class="flex justify-around pt-2 pb-5">
+            <section class="basis-1/3">
+                <h2 class="font-bold">LICENSE</h2>
+                <p class="text-sm">
+                    REDasm is OpenSource Software and
+                    it's released under GNU GPL3 License.
+                </p>
+            </section>
+            <section>
+                <h2 class="font-bold">THANKS TO</h2>
+                <ul class="text-sm">
+                    <li>
+                        <a href="https://www.capstone-engine.org">Capstone Engine</a>
+                    </li>
+                    <li>
+                        <a href="https://zydis.re">Zydis</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2 class="font-bold">STATS</h2>
+                <ul>
+                    <li>
+                        <a class="github-button" href="https://github.com/REDasmOrg/REDasm"
+                            data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-star"
+                            data-size="large" data-show-count="true"
+                            aria-label="Star REDasmOrg/REDasm on GitHub">Star</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <p class="text-sm italic">
+            Developed with <i class="fas fa-heart text-[red]"></i>
+            by <a href="https://github.com/Dax89">Dax</a>
+        </p>
+        <p class="text-xs italic">
+            redasm.dev version 1.0
+        </p>
+    </footer>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script type="module">
+        import "./components/tabcontainer.js";
+        import "./components/imgcarousel.js";
+        import App from "./app.js";
+        import HomePage from "./pages/home.js";
+        import FeaturesPage from "./pages/features.js";
+        import DownloadPage from "./pages/download.js";
+
+        new App({
+            "/": HomePage,
+            "/features": FeaturesPage,
+            "/download": DownloadPage,
+        }, {
+            name: "REDasm"
+        });
+    </script>
+</body>
+
+</html>
