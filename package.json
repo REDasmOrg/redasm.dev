@@ -1,8 +1,12 @@
 {
   "name": "redasm.dev",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "homepage": "https://redasm.dev",
   "type": "module",
+  "engines": {
+      "node": "^18.19.0 || >=20.6.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
