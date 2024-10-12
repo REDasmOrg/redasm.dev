@@ -97,7 +97,7 @@
         "content_type": "application/zip",
         "state": "uploaded",
         "size": 25850935,
-        "download_count": 5845,
+        "download_count": 5853,
         "created_at": "2021-05-16T17:25:56Z",
         "updated_at": "2021-05-16T17:27:32Z",
         "browser_download_url": "https://github.com/REDasmOrg/REDasm/releases/download/v3.0.0-beta5/REDasm_3.0_BETA5_Windows_x86_64.zip"
@@ -556,7 +556,7 @@
         "content_type": "application/zip",
         "state": "uploaded",
         "size": 49462548,
-        "download_count": 1528,
+        "download_count": 1530,
         "created_at": "2021-05-16T16:06:16Z",
         "updated_at": "2021-05-16T16:06:46Z",
         "browser_download_url": "https://github.com/REDasmOrg/REDasm/releases/download/v2.1.1/REDasm_2.1.1_Windows_x86_64.zip"
@@ -698,7 +698,7 @@
         "content_type": "application/zip",
         "state": "uploaded",
         "size": 49457334,
-        "download_count": 113,
+        "download_count": 114,
         "created_at": "2021-05-16T16:04:31Z",
         "updated_at": "2021-05-16T16:05:01Z",
         "browser_download_url": "https://github.com/REDasmOrg/REDasm/releases/download/v2.1/REDasm_2.1_Windows_x86_64.zip"
