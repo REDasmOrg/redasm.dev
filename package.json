@@ -17,8 +17,7 @@
     "@fontsource/inter": "^5.1.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
-    "@fortawesome/free-solid-svg-icons": "^6.6.0",
-    "glider-js": "^1.7.9"
+    "@fortawesome/free-solid-svg-icons": "^6.6.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
