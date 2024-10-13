@@ -42,14 +42,29 @@ export default class App {
         return url.protocol === "http:" || url.protocol === "https:";
     }
 
-    parseHTML(html) {
+    parseHTML(html, wrappertag = null) {
+        if (!html)
+            return null;
+
         const eltemplate = document.createElement("template");
         eltemplate.innerHTML = html.trim();
 
-        if (eltemplate.content.children.length)
+        if (eltemplate.content.children.length === 1)
             return eltemplate.content.firstElementChild;
 
-        return eltemplate.content.children;
+        if (wrappertag) {
+            const wrapper = document.createElement(wrappertag);
+            while (eltemplate.content.firstChild)
+                wrapper.appendChild(eltemplate.content.firstChild);
+
+            return wrapper;
+        }
+
+        const fragment = document.createDocumentFragment();
+        while (eltemplate.content.firstChild)
+            fragment.appendChild(eltemplate.content.firstChild);
+
+        return fragment;
     }
 
     createTable(params) {
@@ -73,7 +88,13 @@ export default class App {
             const fragment = document.createDocumentFragment();
             const body = fragment.appendChild(document.createElement("tbody"))
             body.className = params.bodyclass || "";
-            params.rows.forEach((x, i) => body.insertRow().innerHTML = params.delegate(x, i));
+
+            params.rows.forEach((x, i) => {
+                const row = body.insertRow();
+                row.className = params.rowclass || "";
+                row.innerHTML = params.delegate(x, i);
+            });
+
             table.appendChild(body);
         }
 
@@ -144,12 +165,12 @@ export default class App {
             const params = this._extractUrlParams(routepage, path);
 
             if (typeof (routepage.page.delegate) === "function") {
-                const newmain = this.main.cloneNode(true);
-                newmain.innerHTML = "";
-
-                const template = newmain.appendChild(this.parseHTML(routepage.page.template));
+                const template = this.parseHTML(routepage.page.template);
 
                 Promise.resolve(routepage.page.delegate(this, template, { path, params })).then(() => {
+                    const newmain = this.main.cloneNode(true);
+                    newmain.innerHTML = "";
+                    newmain.appendChild(template);
                     this.main.replaceWith(newmain);
                 });
             }
