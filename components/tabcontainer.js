@@ -20,6 +20,8 @@ class TabPanel extends HTMLElement {
 
     connectedCallback() {
         this.role = "tabpanel";
+        this.classList.add("block", "pt-2");
+
         this._checkVisibility();
     }
 
@@ -29,7 +31,10 @@ class TabPanel extends HTMLElement {
     }
 
     _checkVisibility() {
-        this.style.display = this.selected ? "block" : "none";
+        if (this.selected)
+            this.classList.remove("hidden");
+        else
+            this.classList.add("hidden");
     }
 }
 
@@ -46,7 +51,6 @@ class TabContainer extends HTMLElement {
 
             this.panels.forEach((tp, i) => {
                 this._addButton(tp, i);
-                tp.classList.add("py-2");
 
                 if (tp.selected)
                     selected = i;

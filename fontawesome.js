@@ -2,6 +2,11 @@ import { library, dom } from "@fortawesome/fontawesome-svg-core";
 
 import {
     faStar,
+    faList,
+    faSitemap,
+    faWindowRestore,
+    faCubesStacked,
+    faDumbbell,
     faHeart,
     faCircle,
     faChevronLeft,
@@ -13,12 +18,16 @@ import {
     faXTwitter,
     faRedditAlien,
     faYoutube,
-    faGithubAlt,
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function initFontAwesome() {
     library.add(
         faStar,
+        faList,
+        faSitemap,
+        faWindowRestore,
+        faCubesStacked,
+        faDumbbell,
         faHeart,
         faCircle,
         faChevronLeft,
@@ -28,7 +37,6 @@ export default function initFontAwesome() {
         faXTwitter,
         faRedditAlien,
         faYoutube,
-        faGithubAlt
     );
 
     dom.watch();

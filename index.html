@@ -35,13 +35,13 @@
                     <a data-default data-navigation href="/">Home</a>
                 </li>
                 <li>
-                    <a data-default data-navigation href="/features">Features</a>
-                </li>
-                <!-- <li> -->
-                <!--     <a data-default data-navigation href="/roadmap">Roadmap</a> -->
-                <!-- </li> -->
-                <li>
                     <a data-default data-navigation href="/download">Download</a>
+                </li>
+                <li>
+                    <a data-default data-navigation href="/plugins">Plugins</a>
+                </li>
+                <li>
+                    <a data-default target="_blank" href="https://github.com/REDasmOrg">Source Code</a>
                 </li>
             </ul>
             <ul class="flex gap-x-3">
@@ -65,16 +65,11 @@
                         <i class="fab fa-youtube fa-fw fa-lg" aria-label="YouTube"></i>
                     </a>
                 </li>
-                <li>
-                    <a data-default href="https://github.com/REDasmOrg">
-                        <i class="fab fa-github-alt fa-fw fa-lg" aria-label="Source Code"></i>
-                    </a>
-                </li>
             </ul>
         </nav>
     </header>
     <div class="container bg-background-alt my-3 mx-auto">
-        <main class="p-6">
+        <main class="p-4">
 
         </main>
     </div>
@@ -114,16 +109,15 @@
     <script type="module">
         import initFontAwesome from "./fontawesome.js";
         import "./components/tabcontainer.js";
-        import "./components/imgcarousel.js";
         import "./components/ghstats.js";
         import App from "./app.js";
         import HomePage from "./pages/home.js";
-        import FeaturesPage from "./pages/features.js";
+        import PluginsPage from "./pages/plugins.js";
         import DownloadPage from "./pages/download.js";
 
         new App({
             "/": HomePage,
-            "/features": FeaturesPage,
+            "/plugins": PluginsPage,
             "/download": DownloadPage,
         }, {name: "REDasm"});
 

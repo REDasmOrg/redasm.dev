@@ -118,7 +118,7 @@ function createPackagesTable(app, container) {
     container.appendChild(app.createTable({
         class: "w-full",
         caption: "Unofficial packages created by the community",
-        captionclass: "text-left py-1",
+        captionclass: "text-left",
         header: ["OS", "Package Name", "URL"],
         headerclass: "text-left",
         rows: PACKAGES,
