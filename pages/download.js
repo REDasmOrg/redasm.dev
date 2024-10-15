@@ -16,7 +16,7 @@ function getFileSize(bytes, si = false, dp = 1) {
 }
 
 async function fetchReleases() {
-    const URL = "https://raw.githubusercontent.com/REDasmOrg/redasm.github.io/refs/heads/data/releases.json";
+    const URL = "https://raw.githubusercontent.com/REDasmOrg/redasm.dev/refs/heads/data/releases.json";
 
     try {
         const response = await fetch(URL);
