@@ -27,10 +27,10 @@
     <title>REDasm</title>
 </head>
 
-<body class="text-foreground bg-background">
+<body class="min-h-screen flex flex-col text-foreground bg-background">
     <header class="bg-background-alt container mx-auto">
         <nav class="flex justify-between py-4 px-3">
-            <ul class="flex gap-x-3">
+            <ul class="flex flex-col md:flex-row gap-x-3">
                 <li>
                     <a data-default data-navigation href="/">Home</a>
                 </li>
@@ -44,7 +44,7 @@
                     <a data-default target="_blank" href="https://github.com/REDasmOrg">Source Code</a>
                 </li>
             </ul>
-            <ul class="flex gap-x-3">
+            <ul class="flex flex-col md:flex-row gap-x-3">
                 <li>
                     <a data-default href="https://t.me/REDasmDisassembler">
                         <i class="fab fa-telegram fa-fw fa-lg" aria-label="Telegram"></i>
@@ -68,13 +68,13 @@
             </ul>
         </nav>
     </header>
-    <div class="container bg-background-alt my-3 mx-auto">
+    <div class="flex-1 container bg-background-alt my-3 mx-auto">
         <main class="p-4">
 
         </main>
     </div>
     <footer class="text-center container mx-auto pb-3">
-        <div class="flex justify-around pt-2 pb-5">
+        <div class="flex flex-col md:flex-row gap-y-4 justify-around pt-2 pb-5">
             <section class="basis-1/3">
                 <h2 class="font-bold">LICENSE</h2>
                 <p class="text-sm">
