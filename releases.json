@@ -23,6 +23,7 @@
       "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
       "received_events_url": "https://api.github.com/users/Dax89/received_events",
       "type": "User",
+      "user_view_type": "public",
       "site_admin": false
     },
     "node_id": "MDc6UmVsZWFzZTQzMDE3NTg3",
@@ -58,6 +59,7 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/vnd.appimage",
@@ -92,12 +94,13 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/zip",
         "state": "uploaded",
         "size": 25850935,
-        "download_count": 5886,
+        "download_count": 5893,
         "created_at": "2021-05-16T17:25:56Z",
         "updated_at": "2021-05-16T17:27:32Z",
         "browser_download_url": "https://github.com/REDasmOrg/REDasm/releases/download/v3.0.0-beta5/REDasm_3.0_BETA5_Windows_x86_64.zip"
@@ -143,6 +146,7 @@
       "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
       "received_events_url": "https://api.github.com/users/Dax89/received_events",
       "type": "User",
+      "user_view_type": "public",
       "site_admin": false
     },
     "node_id": "MDc6UmVsZWFzZTM4MDMzNDAy",
@@ -178,6 +182,7 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/vnd.appimage",
@@ -212,6 +217,7 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/zip",
@@ -251,6 +257,7 @@
       "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
       "received_events_url": "https://api.github.com/users/Dax89/received_events",
       "type": "User",
+      "user_view_type": "public",
       "site_admin": false
     },
     "node_id": "MDc6UmVsZWFzZTM3MTQ4Mzcz",
@@ -286,6 +293,7 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/vnd.appimage",
@@ -320,6 +328,7 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/zip",
@@ -359,6 +368,7 @@
       "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
       "received_events_url": "https://api.github.com/users/Dax89/received_events",
       "type": "User",
+      "user_view_type": "public",
       "site_admin": false
     },
     "node_id": "MDc6UmVsZWFzZTM2NTAwNTcy",
@@ -400,6 +410,7 @@
       "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
       "received_events_url": "https://api.github.com/users/Dax89/received_events",
       "type": "User",
+      "user_view_type": "public",
       "site_admin": false
     },
     "node_id": "MDc6UmVsZWFzZTM2MTg0NzYw",
@@ -441,6 +452,7 @@
       "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
       "received_events_url": "https://api.github.com/users/Dax89/received_events",
       "type": "User",
+      "user_view_type": "public",
       "site_admin": false
     },
     "node_id": "MDc6UmVsZWFzZTM2MTc4ODU4",
@@ -482,6 +494,7 @@
       "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
       "received_events_url": "https://api.github.com/users/Dax89/received_events",
       "type": "User",
+      "user_view_type": "public",
       "site_admin": false
     },
     "node_id": "MDc6UmVsZWFzZTE3NTQ2OTQ3",
@@ -517,6 +530,7 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/zip",
@@ -551,12 +565,13 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/zip",
         "state": "uploaded",
         "size": 49462548,
-        "download_count": 1542,
+        "download_count": 1544,
         "created_at": "2021-05-16T16:06:16Z",
         "updated_at": "2021-05-16T16:06:46Z",
         "browser_download_url": "https://github.com/REDasmOrg/REDasm/releases/download/v2.1.1/REDasm_2.1.1_Windows_x86_64.zip"
@@ -585,6 +600,7 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/vnd.appimage",
@@ -624,6 +640,7 @@
       "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
       "received_events_url": "https://api.github.com/users/Dax89/received_events",
       "type": "User",
+      "user_view_type": "public",
       "site_admin": false
     },
     "node_id": "MDc6UmVsZWFzZTE3MjkyODI3",
@@ -659,6 +676,7 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/zip",
@@ -693,12 +711,13 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/zip",
         "state": "uploaded",
         "size": 49457334,
-        "download_count": 114,
+        "download_count": 116,
         "created_at": "2021-05-16T16:04:31Z",
         "updated_at": "2021-05-16T16:05:01Z",
         "browser_download_url": "https://github.com/REDasmOrg/REDasm/releases/download/v2.1/REDasm_2.1_Windows_x86_64.zip"
@@ -727,6 +746,7 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/vnd.appimage",
@@ -766,6 +786,7 @@
       "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
       "received_events_url": "https://api.github.com/users/Dax89/received_events",
       "type": "User",
+      "user_view_type": "public",
       "site_admin": false
     },
     "node_id": "MDc6UmVsZWFzZTE1ODkxNDMz",
@@ -801,6 +822,7 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/zip",
@@ -835,12 +857,13 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/zip",
         "state": "uploaded",
         "size": 95386629,
-        "download_count": 157,
+        "download_count": 158,
         "created_at": "2021-05-16T16:02:22Z",
         "updated_at": "2021-05-16T16:03:14Z",
         "browser_download_url": "https://github.com/REDasmOrg/REDasm/releases/download/v2.0/REDasm_2.0_Windows_x86_64.zip"
@@ -869,6 +892,7 @@
           "events_url": "https://api.github.com/users/Dax89/events{/privacy}",
           "received_events_url": "https://api.github.com/users/Dax89/received_events",
           "type": "User",
+          "user_view_type": "public",
           "site_admin": false
         },
         "content_type": "application/vnd.appimage",
