@@ -70,32 +70,43 @@ export default class App {
     createTable(params) {
         params = params || {};
         const table = document.createElement("table");
-        table.className = params.class || "";
+        if (params.class) table.className = params.class;
 
         if (params.caption) {
             const caption = table.createCaption();
-            caption.className = params.captionclass || "";
-            caption.textContent = params.caption;
+            if (params.captionclass) caption.className = params.captionclass;
+            if (params.caption) caption.textContent = params.caption;
         }
 
         if (Array.isArray(params.header) && params.header.length > 0) {
-            const head = table.createTHead().insertRow();
-            head.className = params.headerclass || "";
-            params.header.forEach(x => head.appendChild(document.createElement("th")).textContent = x || "");
+            const colgroup = table.appendChild(document.createElement("colgroup"));
+            const thead = table.createTHead().insertRow();
+            if (params.headerclass) thead.className = params.headerclass;
+
+            params.header.forEach((x, i) => {
+                const col = document.createElement("col");
+                const th = document.createElement("th");
+                if (x !== null) th.textContent = x;
+
+                if (typeof (params.headerdelegate) === "function")
+                    params.headerdelegate(x, { col, th }, i);
+
+                colgroup.appendChild(col);
+                thead.appendChild(th);
+            });
         }
 
         if (Array.isArray(params.rows) && params.rows.length > 0 && typeof (params.delegate) === "function") {
             const fragment = document.createDocumentFragment();
-            const body = fragment.appendChild(document.createElement("tbody"))
-            body.className = params.bodyclass || "";
+            const tbody = fragment.appendChild(document.createElement("tbody"))
+            if (params.bodyclass) tbody.className = params.bodyclass;
 
             params.rows.forEach((x, i) => {
-                const row = body.insertRow();
-                row.className = params.rowclass || "";
-                row.innerHTML = params.delegate(x, i);
+                const row = tbody.insertRow();
+                row.innerHTML = params.delegate(x, row, i);
             });
 
-            table.appendChild(body);
+            table.appendChild(tbody);
         }
 
         return table;
