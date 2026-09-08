@@ -1,59 +1,5 @@
 import { AppComponent } from "$app";
-
-const SUPPORTED_MATRIX = {
-    tiers: ["S", "A", "B", "C", "D"],
-
-    tier_details: {
-        S: { description: "production ready", text: "text-[#67bd61]", border: "border-[#67bd61]" },
-        A: { description: "highly stable", text: "text-[#7dafff]", border: "border-[#7dafff]" },
-        B: { description: "functional", text: "text-[#ffb22e]", border: "border-[#ffb22e]" },
-        C: { description: "basic / stub", text: "text-[#757575]", border: "border-[#757575]" },
-        D: { description: "wip / experimental", text: "text-[#ff7575]", border: "border-[#ff7575]" },
-    },
-
-    matrix: [
-        {
-            icon: "fa-folder-open",
-            title: "loaders",
-
-            items: [
-                { text: "PE / PE32+", tier: "S" },
-                { text: "ELF / ELF64", tier: "S" },
-                { text: "NE (Win16)", tier: "A" },
-                { text: "LE / LX (OS/2)", tier: "A" },
-                { text: "PSX EXE (PS1)", tier: "A" },
-                { text: "MZ (DOS)", tier: "B" },
-                { text: "PSX BIOS (PS1)", tier: "B" },
-                { text: "XBE (Xbox)", tier: "B" },
-                { text: "ZX Spectrum (SNA, Z80, TAP)", tier: "B" },
-                { text: "NES (iNES, mapper 0)", tier: "C" },
-            ],
-        },
-        {
-            icon: "fa-microchip",
-            title: "processors",
-
-            items: [
-                { text: "x86 / x86_64", tier: "S" },
-                { text: "MIPS", tier: "A" },
-                { text: "ARM / THUMB", tier: "A" },
-                { text: "ARM64", tier: "A" },
-                { text: "Z80", tier: "B" },
-                { text: "MOS6502", tier: "B" },
-            ],
-        },
-        {
-            icon: "fa-magnifying-glass",
-            title: "other",
-
-            items: [
-                { text: "Visual Basic Analyzer", tier: "A" },
-                { text: "MSVC RTTI Analyzer", tier: "D" },
-                { text: "MSVC EH Analyzer", tier: "D" },
-            ],
-        }
-    ]
-};
+import Features from "$lib/features.js";
 
 class Supported extends AppComponent {
     static get tag() { return "x-supported"; }
@@ -75,10 +21,9 @@ class Supported extends AppComponent {
     }
 
     _createMatrix() {
-        const m = SUPPORTED_MATRIX;
         const s_matrix = this.querySelector(".supported-matrix");
 
-        for (const mi of m.matrix) {
+        for (const mi of Features.matrix) {
             const matrix_item = s_matrix.appendChild(document.createElement("div"));
 
             const container = matrix_item.appendChild(document.createElement("div"));
@@ -99,13 +44,12 @@ class Supported extends AppComponent {
     }
 
     _createMatrixMobile() {
-        const m = SUPPORTED_MATRIX;
         const s_matrix = this.querySelector(".supported-matrix-mobile");
 
         const ul = s_matrix.appendChild(document.createElement("ul"));
         ul.classList.add("flex", "flex-col", "gap-y-1");
 
-        for (const [i, mi] of m.matrix.entries()) {
+        for (const [i, mi] of Features.matrix.entries()) {
             const li = ul.appendChild(document.createElement("li"));
             const button = li.appendChild(document.createElement("button"));
             button.classList.add("cursor-pointer", "w-full", "px-2", "py-1", "uppercase", "border", "border-muted", "text-muted", "bg-background-alt", "matrix-container-button");
@@ -139,23 +83,20 @@ class Supported extends AppComponent {
     }
 
     _createLegend() {
-        const m = SUPPORTED_MATRIX;
         const s_legend = this.querySelector(".supported-legend");
 
         const container = s_legend.appendChild(document.createElement("div"));
         container.classList.add("mx-auto", "grid", "grid-cols-2", "md:flex", "justify-between", "gap-2", "md:gap-6", "p-3");
 
-        for (const tier of m.tiers)
+        for (const tier of Features.tiers)
             container.appendChild(this._createTierIcon(tier, true));
     }
 
     _createTierIcon(tier, label) {
-        const m = SUPPORTED_MATRIX;
-
         const icon_el = document.createElement("div");
         icon_el.classList.add("w-[24px]", "h-[24px]", "flex", "justify-center",
             "items-center", "p-1", "border",
-            m.tier_details[tier].border, m.tier_details[tier].text);
+            Features.tier_details[tier].border, Features.tier_details[tier].text);
         icon_el.textContent = tier;
 
         if (label !== true) return icon_el;
@@ -167,7 +108,7 @@ class Supported extends AppComponent {
 
         const text_el = tier_el.appendChild(document.createElement("div"));
         text_el.classList.add("flex-1");
-        text_el.textContent = m.tier_details[tier].description;
+        text_el.textContent = Features.tier_details[tier].description;
 
         return tier_el;
     }

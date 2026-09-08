@@ -1,3 +1,5 @@
+import Packages from "$lib/packages.js"
+
 function getFileSize(bytes, si = false, dp = 1) {
     const thresh = si ? 1000 : 1024;
     if (Math.abs(bytes) < thresh) return bytes + " B";
@@ -162,4 +164,32 @@ export async function createDownloadList(container) {
     container.appendChild(more);
 
     return items.length ? items[0].tag : null;
+}
+
+export function createPackageList(container) {
+    for (const [i, f] of Packages.entries()) {
+        const title_container = container.appendChild(document.createElement("h3"));
+        title_container.classList.add("flex", "items-center", "gap-x-3");
+        if (i > 0) title_container.classList.add("mt-4");
+
+        const title = title_container.appendChild(document.createElement("div"));
+        title.classList.add("font-bold");
+        title.textContent = f.channel;
+
+        const title_badge = title_container.appendChild(document.createElement("div"));
+        title_badge.classList.add("text-xs", "opacity-50", "border", "border-muted", "px-1", "rounded");
+        title_badge.textContent = f.kind;
+
+        const code = f.commands.map(x => {
+            if (x.startsWith("#")) return `<span class="text-success">${x}</span>`;
+            if (x.startsWith("-")) return `<span class="pl-2">${x}</span>`
+            return x;
+        }).join("\n");
+
+        const content = container.appendChild(document.createElement("pre"));
+        content.classList.add("text-code", "overflow-x-auto",
+            "whitespace-pre-wrap", "break-all",
+            "border-l-2", "border-muted", "pl-3");
+        content.innerHTML = `<code>${code}</code>`;
+    }
 }

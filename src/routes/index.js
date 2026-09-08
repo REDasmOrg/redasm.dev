@@ -5,7 +5,7 @@ import "$lib/components/featuregrid.js";
 import "$lib/components/tabcontainer.js";
 import "$lib/components/supported.js";
 import "$lib/components/notice.js";
-import { createDownloadList } from "$lib/downloads.js";
+import { createDownloadList, createPackageList } from "$lib/downloads.js";
 import { updateCIStatus } from "$lib/ci.js";
 import { AppPage } from "$app";
 
@@ -32,11 +32,19 @@ export default class HomePage extends AppPage {
                 </div>
             </div>
             <div class="flex flex-col gap-y-3 text-right">
-                <div>
-                    <a data-default class="tracking-[0.08em] inline-flex items-center gap-x-2 bg-primary hover:bg-highlight hover:text-background text-foreground uppercase text-sm px-4 py-2" href="#download">
-                        <i class="fas fa-download"></i>
-                        <span>download</span>
-                    </a>
+                <div class="flex flex-col gap-y-1">
+                    <div>
+                        <a data-default class="tracking-[0.08em] inline-flex items-center gap-x-2 bg-primary hover:bg-highlight hover:text-background text-foreground uppercase text-sm px-4 py-2" href="#download">
+                            <i class="fas fa-download"></i>
+                            <span>download</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a data-default class="tracking-[0.08em] inline-flex items-center gap-x-2 bg-muted hover:bg-highlight hover:text-background text-foreground uppercase text-sm px-4 py-2" href="#packages">
+                            <i class="fas fa-box-open"></i>
+                            <span>packages</span>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <div class="inline-flex items-end gap-x-2 text-muted">
@@ -45,7 +53,7 @@ export default class HomePage extends AppPage {
                     </div>
                 </div>
                 <div class="flex flex-col gap-y-1">
-                    <x-badge id="x-badge-ci" class="uppercase" color="muted" label="CI     " value="C/C++"></x-badge>
+                    <x-badge id="x-badge-ci" class="uppercase" color="muted" label="     CI" value="C/C++"></x-badge>
                     <x-badge id="x-badge-nightly" class="uppercase" color="muted" label="Nightly" value="GPL3"></x-badge>
                 </div>
             </div>
@@ -127,6 +135,15 @@ sha256sum -c REDasm-nightly-linux-x86_64.AppImage.sha256
 </div>
             </details>
         </section>
+        <section id="packages" class="flex flex-col gap-y-3">
+            <section-title>Packages</section-title>
+            <p>
+                REDasm is also available in various package managers, which provides
+                a more integrated installation & update experience.
+            </p>
+            <div id="home__packages">
+            </div>
+        </section>
     </div>
 </article>
 `;
@@ -159,6 +176,7 @@ sha256sum -c REDasm-nightly-linux-x86_64.AppImage.sha256
             document.querySelector("#latest-version-url").href = `${URL_BASE}/${v}`;
         });
 
+        createPackageList(this.querySelector("#home__packages"));
         updateCIStatus();
     }
 }
