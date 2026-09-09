@@ -1,7 +1,7 @@
 export default [
     {
         channel: "Scoop",
-        kind: "Official",
+        official: true,
         commands: [
             "scoop install git",
             "scoop bucket add redasm https://github.com/redasm-dev/scoop-redasm",
@@ -10,7 +10,7 @@ export default [
     },
     {
         channel: "Arch Linux (AUR)",
-        kind: "Official",
+        official: true,
         commands: [
             "Replace `yay` with your AUR helper.",
             "# beta",
@@ -21,7 +21,6 @@ export default [
     },
     {
         channel: "Pentoo",
-        kind: "Community",
         commands: [
             "Split in various packages:",
             "- libredasm",

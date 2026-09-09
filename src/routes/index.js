@@ -141,7 +141,7 @@ sha256sum -c REDasm-nightly-linux-x86_64.AppImage.sha256
                 REDasm is also available in various package managers, which provides
                 a more integrated installation & update experience.
             </p>
-            <div id="home__packages">
+            <div id="home__packages" class="bg-background-alt border border-muted p-4">
             </div>
         </section>
     </div>
