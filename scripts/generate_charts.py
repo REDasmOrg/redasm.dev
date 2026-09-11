@@ -98,6 +98,20 @@ def chart_platform(dates, versions, ordered_versions, colors,
         plt.close(fig)
         return False
 
+    # 7-day rolling average trend line
+    import numpy as np
+    total_deltas = [0.0] * len(d30)
+    for version in ordered_versions:
+        if platform not in versions[version]:
+            continue
+        deltas = compute_deltas(versions[version][platform])[idx:]
+        total_deltas = [a + b for a, b in zip(total_deltas, deltas)]
+
+    window = min(3, len(total_deltas))
+    rolling = np.convolve(total_deltas, np.ones(window) / window, mode="same")
+    ax.plot(d30, rolling, color="#111111", linewidth=2.5,
+            linestyle="-", zorder=4, label="3-day avg", alpha=0.85)
+
     # Release day markers within the 30-day window
     for version, rdate in release_dates.items():
         if rdate >= d30[0]:
