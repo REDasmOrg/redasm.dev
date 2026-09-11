@@ -3,6 +3,7 @@
 REDasm Download Append Script
 Reads releases.json, extracts download counts for the last 3 tracked versions,
 appends a new row to downloads.csv if today's date is not already present.
+When tracked versions change, rewrites the CSV to match the new column set.
 
 Run from the root of the data branch:
     python3 scripts/append_downloads.py
@@ -16,52 +17,65 @@ from common import load_tracked_releases, PLATFORM_ORDER
 DOWNLOADS_CSV = Path("downloads.csv")
 
 
-def load_existing_dates(csv_path: Path) -> set:
-    if not csv_path.exists():
-        return set()
-    with csv_path.open(newline="", encoding="utf-8") as f:
-        return {row["date"] for row in csv.DictReader(f)}
-
-
-def load_fieldnames(csv_path: Path) -> list | None:
-    if not csv_path.exists():
-        return None
-    with csv_path.open(newline="", encoding="utf-8") as f:
-        return csv.DictReader(f).fieldnames
-
-
-def build_fieldnames(releases: list, existing: list | None) -> list:
+def build_fieldnames(releases: list) -> list:
     versions = [r["tag"] for r in releases]
     platforms = [p for p in PLATFORM_ORDER
                  if any(p in r["platforms"] for r in releases)]
-    new_cols = ["date"] + [f"{v}_{p}" for v in versions for p in platforms]
-    if existing is None:
-        return new_cols
-    merged = list(existing)
-    for col in new_cols:
-        if col not in merged:
-            merged.append(col)
-    return merged
+    return ["date"] + [f"{v}_{p}" for v in versions for p in platforms]
+
+
+def load_csv(csv_path: Path) -> tuple[list, list | None]:
+    """Returns (rows, fieldnames) or ([], None) if file doesn't exist."""
+    if not csv_path.exists():
+        return [], None
+    with csv_path.open(newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        return list(reader), list(reader.fieldnames)
+
+
+def rewrite_csv(csv_path: Path, fieldnames: list, rows: list) -> None:
+    """Rewrite entire CSV remapping existing rows to new fieldnames."""
+    remapped = []
+    for row in rows:
+        new_row = {"date": row["date"]}
+        for col in fieldnames:
+            if col == "date":
+                continue
+            new_row[col] = int(row.get(col, 0))
+        remapped.append(new_row)
+
+    with csv_path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(remapped)
+
+    print(f"Rewrote CSV with columns: {fieldnames}")
 
 
 def main():
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-
-    if today in load_existing_dates(DOWNLOADS_CSV):
-        print(f"Already have data for {today}, skipping.")
-        return
 
     releases = load_tracked_releases()
     if not releases:
         print("No tracked releases found, skipping.")
         return
 
-    existing = load_fieldnames(DOWNLOADS_CSV)
-    fieldnames = build_fieldnames(releases, existing)
-
-    # Build counts lookup
+    fieldnames = build_fieldnames(releases)
     counts = {r["tag"]: r["platforms"] for r in releases}
 
+    existing_rows, existing_fields = load_csv(DOWNLOADS_CSV)
+
+    # Rewrite if columns changed or file is new
+    if existing_fields != fieldnames:
+        rewrite_csv(DOWNLOADS_CSV, fieldnames, existing_rows)
+        existing_rows, _ = load_csv(DOWNLOADS_CSV)
+
+    # Check if today already exists
+    if any(row["date"] == today for row in existing_rows):
+        print(f"Already have data for {today}, skipping.")
+        return
+
+    # Build and append new row
     row = {"date": today}
     for col in fieldnames:
         if col == "date":
@@ -69,11 +83,8 @@ def main():
         version, platform = col.rsplit("_", 1)
         row[col] = counts.get(version, {}).get(platform, 0)
 
-    write_header = not DOWNLOADS_CSV.exists()
     with DOWNLOADS_CSV.open("a", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
-        if write_header:
-            writer.writeheader()
         writer.writerow(row)
 
     print(f"Appended {today}: {{r['tag']: r['platforms'] for r in releases}}")
