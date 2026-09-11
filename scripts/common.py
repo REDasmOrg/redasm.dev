@@ -10,7 +10,7 @@ from pathlib import Path
 
 RELEASES_JSON = Path("releases.json")
 EXCLUDE_TAGS = {"nightly"}
-TRACKED_PREFIX = "v4.0.0"
+TRACKED_PREFIX = "v4.0.0" # TODO: when stable series begins (v4.0.1, v4.1.0 etc), broaden to "v4."
 MAX_VERSIONS = 3
 SKIP_EXTENSIONS = {".sha256", ".asc", ".sig"}
 
